@@ -2,12 +2,6 @@ The MIT License (MIT)
 
 Copyright (c) 2014 Joshua Greene
 
-Inspired in part by Mouhcine El Amine's work on `EAMTextView` 
-(https://github.com/mouhcine/EAMTextView), copyright (c) 2013 
-El Amine Mouhcine, and by Matej Balantič's work on `MBAutoGrowingTextView` 
-(https://github.com/MatejBalantic/MBAutoGrowingTextView), copyright (c) 2014 
-Matej Balantič. Both of these libraries are also released under the MIT license.
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
