@@ -34,14 +34,13 @@
 }
 
 + (NSString *)identifier {
-  return NSStringFromClass([self class]).lastPathComponent;
+  
+  NSString *identifier = NSStringFromClass([self class]);
+  return identifier.pathExtension.length > 0 ? identifier.pathExtension : identifier;
 }
 
-+ (NSString *)storyboardName {
-  
-  NSBundle *bundle = [self bundle];
-  NSDictionary *infoDict = bundle.infoDictionary;
-  return infoDict[@"UIMainStoryboardFile"];
++ (NSString *)storyboardName {  
+  return @"Main";
 }
 
 #pragma mark - Instantiation

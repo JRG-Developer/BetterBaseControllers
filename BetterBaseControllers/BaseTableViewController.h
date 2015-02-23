@@ -25,6 +25,16 @@
 
 #import "UIViewController+InstanceFrom.h"
 
+/**
+ *  @brief  `BaseTableViewController` is an abstract, base class meant to be subclassed instead of `UIViewController`.
+ *
+ *  @discussion  Most view controllers will only have *ONE* nib or storyboard scene associated with them. This class, combined with the `UIViewController+InstanceFrom` category, lets you specify the `identifier`, `bundle`, and `storyboardName` as part of the class- where it makes more sense for it to be in most cases- and perform common setup code in `commonInit`.
+ 
+ This also makes creating and consuming a CocoaPod *much* easier.
+ 
+ In example, instead of having to call `initWithNibName: bundle:`, which requires that the consuming app have knowledge of the nib name and the bundle, you can simply call `instanceFromNib`.
+ *
+ */
 @interface BaseTableViewController : UITableViewController
 
 #pragma mark - Object Lifecycle

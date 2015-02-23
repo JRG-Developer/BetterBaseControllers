@@ -55,7 +55,7 @@
 /**
  *  @brief  Use this method to specify the storyboard name that `initFromStoryboard` should load.
  *
- *  @discussion This method returns the value of `UIMainStoryboardFile` from the `bundle` info dictionary by default.
+ *  @discussion This method returns "Main" by default.
  *
  *  @return The storyboard name to load or `nil` to use `[NSBundle mainBundle].infoDictionary[@"UIMainStoryboardFile"]`.
  */

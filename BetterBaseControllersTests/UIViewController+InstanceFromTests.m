@@ -50,6 +50,12 @@
 
 #pragma mark - Test Lifecycle
 
+- (void)setUp
+{
+  [super setUp];
+  storyboardName = @"Main";
+}
+
 - (void)tearDown {
 
   [bundleClass stopMocking];
@@ -67,17 +73,6 @@
 
 - (void)givenMockStoryboardClass {
   storyboardClass = OCMClassMock([UIStoryboard class]);
-}
-
-- (void)givenMockedStoryboardName {
-  
-  storyboardName = @"Main";
-  NSDictionary *infoDictionary = @{@"UIMainStoryboardFile": storyboardName};
-  id bundle = OCMClassMock([NSBundle class]);
-  OCMStub([bundle infoDictionary]).andReturn(infoDictionary);
-  
-  [self givenMockSutClass];
-  OCMStub([sutClass bundle]).andReturn(bundle);
 }
 
 - (void)givenMockSutClass {
@@ -100,7 +95,7 @@
   expect(actual).to.equal(expected);
 }
 
-- (void)test___identifier___returns_stringFromClass {
+- (void)test___identifier___ifClassNameDoesntHavePathExtension_returnsClassName {
   
   // given
   NSString *expected = @"UIViewController";
@@ -112,10 +107,12 @@
   expect(actual).to.equal(expected);
 }
 
-- (void)test___storyboardName___returns_infoDict_UIMainStoryboardFile {
+- (void)test___identifier___ifClassNameHasPathExtension_returnsClassPathExtension {
   
-  // given
-  [self givenMockedStoryboardName];
+  #warning TO-DO:  figure out an easy solution to test this...
+}
+
+- (void)test___storyboardName___returns_infoDict_UIMainStoryboardFile {
   
   // when
   NSString *actual = [UIViewController storyboardName];
@@ -148,8 +145,6 @@
 - (void)test___instanceFromStoryboard___instantiatesViewControllerFromStoryboard {
   
   // given
-  [self givenMockedStoryboardName];
-  
   NSBundle *bundle = [UIViewController bundle];
   NSString *identifier = [UIViewController identifier];
   
