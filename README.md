@@ -32,7 +32,7 @@ Follow these steps for manual installation:
 
 1) Instead of subclassing `UIViewController` or `UITableViewController`, you should subclass `BaseViewController` or `BaseTableViewController`, respectively.
 
-2) (Optional) Override `commonInit`, which is called by *all* designated initializers, to run common setup code.
+2) (Optional) override `commonInit`, which is called by *all* designated initializers, to run common setup code.
 
 3) (Optional) override the class methods `bundle`, `identifier`, or `storyboardName`. This allows you to specify the nib name or storyboard identifier *right in the view controller*.
 
