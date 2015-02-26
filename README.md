@@ -1,20 +1,28 @@
-## BetterBaseControllers
+## This Library is Deprecated
 
-`BetterBaseControllers` are abstract, base controllers meant to be subclassed.
+This library has been replaced by <a href="https://github.com/JRG-Developer/BetterBaseClasses">BetterBaseClasses</a> and will no longer be maintained.
 
-Most view controllers will only have *ONE* nib or storyboard scene associated with them.  `BetterBaseControllers` lets you specify the `identifier`, `bundle`, and `storyboardName`  as part of the class- where it makes more sense for it to be in most cases.
+`BetterBaseClasses` is a superset of this library, but it includes controllers, views, etc. Migrating from this library to `BetterBaseClasses` should be very simple to do.
+
+## BetterBaseClasses
+
+`BetterBaseClasses` are abstract, base classes meant to be subclassed.
+
+Most view controllers will only have *ONE* nib or storyboard scene associated with them.  `BetterBaseClasses` lets you specify the `identifier`, `bundle`, and `storyboardName`  as part of the class- where it makes more sense for it to be in most cases.
 
 This also makes creating and consuming a CocoaPod *much* easier.
- 
+
 In example, instead of having to call `initWithNibName: bundle:`, which requires that the consuming app have knowledge of the nib name and the bundle, you can simply call the class method `instanceFromNib`.
+
+`BetterBaseClasses` also provides convenience methods for working with views, too.
 
 ### Installation with CocoaPods
 
-The easiest way to add `BetterBaseControllers` to your project is using <a href="http://cocoapods.org/">CocoaPods</a>. 
+The easiest way to add `BetterBaseClasses` to your project is using <a href="http://cocoapods.org/">CocoaPods</a>. 
 
 Simply add the following line to your Podfile:
 
-    pod 'BetterBaseControllers', '~> 1.0'
+pod 'BetterBaseClasses', '~> 1.0'
 
 Then run `pod install` as you normally would.
 
@@ -24,9 +32,9 @@ Follow these steps for manual installation:
 
 1) Clone this repo locally onto your computer, or press `Download ZIP` to download the latest master commit.
 
-2) Drag the `BetterBaseControllers` folder into your project.
+2) Drag the `BetterBaseClasses` folder into your project.
 
-3) Delete the `BetterBaseControllers.h` file (it's a public header for when this included as a library/CocoaPod).
+3) Delete the `BetterBaseClasses.h` file (it's a public header for when this included as a library/CocoaPod).
 
 ### How to Use
 
@@ -43,31 +51,33 @@ In most cases, however, you won't need to override these as reasonable default v
 For example,
 
 ------ **TestViewController.h** ------
-	
-    #import "BaseViewController.h"
 
-    @interface TestViewController : BaseViewController
-    @property (assign, nonatomic) NSUInteger exampleValue;
-    @end
+#import "BaseViewController.h"
+
+@interface TestViewController : BaseViewController
+@property (assign, nonatomic) NSUInteger exampleValue;
+@end
 
 ------ **TestViewController.m** ------
 
-    #import "TestViewController.h"
+#import "TestViewController.h"
 
-    @implementation TestViewController
-    
-    - (void)commonInit {      
-      _exampleValue = 42;
-    }
-    
-    @end
+@implementation TestViewController
+
+- (void)commonInit {      
+_exampleValue = 42;
+}
+
+@end
 
 You could then instantiate a new `TestViewController` from a nib named `TestViewController.xib` like this:
 
-    TestViewController *viewController = [TestViewController instanceFromNib];
+TestViewController *viewController = [TestViewController instanceFromNib];
 
 Win. :]
 
+There are also convenience methods for working with views, too. See `BaseView` and `BaseTableView` for in-line documentation for more details.
+
 ### License
 
-`BetterBaseControllers` is available under the MIT license (see the LICENSE file for more details).
+`BetterBaseClasses` is available under the MIT license (see the LICENSE file for more details).
